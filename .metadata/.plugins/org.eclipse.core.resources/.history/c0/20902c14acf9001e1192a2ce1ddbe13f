@@ -1,0 +1,49 @@
+package level10;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
+
+import sun.jvm.hotspot.tools.SysPropsDumper;
+
+public class level7 {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		String line; 
+		
+		while((line = sc.nextLine()) != null && !line.equals("0 0 0"))  {
+			String[] numArr = line.split(" ");
+
+			int same = 1;
+			
+			int big = 0;
+			int sum = 0;
+			
+			Map<Integer,Integer> sameMap = new HashMap<>();
+			for(int i = 0; i < 3; i++) {
+				int num = Integer.parseInt(numArr[i]);
+				
+				sum+= num;
+				
+				if(big < num)big = num;
+				
+				if(sameMap.get(num) != null) {
+					same++;
+				}else {
+					sameMap.put(num, 1);
+				}
+			}
+			
+			if(big >= (sum - big))System.out.println("Invalid");
+			else if(same == 3)System.out.println("Equilateral");
+			else if(same == 2)System.out.println("Equilateral");
+			else System.out.println("Scalene ");
+			
+			
+		}
+		
+		
+		
+		
+	}
+}

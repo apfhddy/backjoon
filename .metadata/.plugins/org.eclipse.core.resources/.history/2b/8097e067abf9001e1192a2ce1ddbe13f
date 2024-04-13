@@ -1,0 +1,38 @@
+package level10;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
+
+public class level7 {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		String line; 
+		
+		while((line = sc.nextLine()) != null && !line.equals("0 0 0"))  {
+			String[] numArr = line.split(" ");
+
+			int same = 1;
+			
+			for(int i = 0; i < 3; i++) {
+				int num = Integer.parseInt(numArr[i]);
+				Map<Integer,Integer> sameMap = new HashMap<>();
+				System.out.println(sameMap);
+				if(sameMap.get(num) != null) {
+					same++;
+				}else {
+					sameMap.put(num, 0);
+				}
+			}
+			
+			System.out.println(same);
+			
+			
+			
+		}
+		
+		
+		
+		
+	}
+}
